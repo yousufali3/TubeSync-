@@ -1,0 +1,6 @@
+{
+  "name": "TubeSync",
+  "description": "Watch YouTube videos together with real-time synchronized playback and live chat.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
