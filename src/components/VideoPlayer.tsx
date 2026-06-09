@@ -360,12 +360,16 @@ export default function VideoPlayer({
         {/* Participant shield to block hover/clicks, and to unmute */}
         {!isHost && (
           <div 
-            onClick={isMuted ? handleParticipantClick : undefined}
+            onClick={isMuted ? handleParticipantClick : (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
             className={`absolute inset-0 z-10 flex flex-col items-center justify-center transition-all duration-300 ${
               isMuted 
                 ? "bg-white/60 backdrop-blur-sm cursor-pointer pointer-events-auto" 
-                : "bg-transparent pointer-events-auto cursor-default"
+                : "pointer-events-auto cursor-default"
             }`}
+            style={!isMuted ? { backgroundColor: 'rgba(0, 0, 0, 0.001)' } : undefined}
             title={isMuted ? "Tap to unmute & play" : ""}
           >
             {isMuted && currentPlaylistItem && (
