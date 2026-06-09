@@ -360,11 +360,11 @@ export default function VideoPlayer({
         {/* Participant shield to block hover/clicks, and to unmute */}
         {!isHost && (
           <div 
-            onClick={handleParticipantClick}
+            onClick={isMuted ? handleParticipantClick : undefined}
             className={`absolute inset-0 z-10 flex flex-col items-center justify-center transition-all duration-300 ${
               isMuted 
                 ? "bg-white/60 backdrop-blur-sm cursor-pointer pointer-events-auto" 
-                : "bg-transparent pointer-events-none"
+                : "bg-transparent pointer-events-auto cursor-default"
             }`}
             title={isMuted ? "Tap to unmute & play" : ""}
           >
